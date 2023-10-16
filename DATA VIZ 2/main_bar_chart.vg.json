@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Global Tree Cover Loss by Dominant Driver (2001-2022)",
+      "fontSize": 16
+    },
+    "data": {"url": "https://raw.githubusercontent.com/guido2810/FIT3179-S2-2023/main/data_folder/tree_cover_loss_by_dominant_driver_adjusted.csv"},
+    "width": 600,
+    "height": 400,
+    "mark": {
+      "type": "bar",
+      "cornerRadiusEnd": 4
+    },
+    "encoding": {
+      "y": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {
+          "title": "Year",
+          "titleFontSize": 16,
+          "labelFontSize": 14
+        }
+      },
+      "x": {
+        "aggregate": "sum",
+        "field": "Tree Cover Loss (Mha)",
+        "type": "quantitative",
+        "axis": {
+          "title": "Tree Cover Loss (Million ha, (mha))",
+          "titleFontSize": 13,
+          "labelFontSize": 12
+        }
+      },
+      "color": {
+        "field": "Dominant Driver",
+        "type": "nominal",
+        "legend": {
+          "title": "List Of Dominant Drivers :",
+          "titleFontSize": 13,
+          "labelFontSize": 11
+        },
+        "scale": {"scheme": "tableau10"}
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal"},
+        {"field": "Dominant Driver", "type": "nominal"},
+        {"field": "Tree Cover Loss (Mha)", "type": "quantitative", "aggregate": "sum", "format": ".2f"}
+      ]
+    },
+    "transform": [
+      {
+        "fold": [
+          "Commodity driven deforestation",
+          "Forestry",
+          "Shifting agriculture",
+          "Unknown causes",
+          "Urbanization",
+          "Wildfire"
+        ],
+        "as": ["Dominant Driver", "Tree Cover Loss (Mha)"]
+      }
+    ],
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"grid": false}
+    }
+  }  

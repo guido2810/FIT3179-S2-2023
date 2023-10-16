@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Global Annual Tree Cover Loss from Fires (2001-2022)",
+  "title": {
+    "text": "Global Annual Tree Cover Loss from Fires",
+    "fontSize": 20,
+    "anchor": "start",
+    "color": "black",
+    "align": "left"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/guido2810/FIT3179-S2-2023/main/data_folder/annual_tree_cover_loss_from_fires.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "line": {"color": "darkred"},
+        "color": {
+          "x1": 1,
+          "y1": 1,
+          "x2": 1,
+          "y2": 0,
+          "gradient": "linear",
+          "stops": [
+            {"offset": 0, "color": "white"},
+            {"offset": 1, "color": "darkred"}
+          ]
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {"format": "%Y", "labelAngle": -45, "titleFontSize": 16, "labelFontSize": 14}
+        },
+        "y": {
+          "field": "loss_from_fires_ha",
+          "type": "quantitative",
+          "title": "Tree Cover Loss (hectares)",
+          "axis": {"titleFontSize": 16, "labelFontSize": 14}
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "fill": "darkred",
+        "stroke": "black"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "loss_from_fires_ha",
+          "type": "quantitative"
+        },
+        "size": {"value": 100},
+        "tooltip": [
+          {"field": "year", "type": "temporal", "title": "Year", "format": "%Y"},
+          {
+            "field": "loss_from_fires_ha",
+            "type": "quantitative",
+            "title": "Loss (hectares)",
+            "format": ".2s"
+          }
+        ]
+      }
+    }
+  ],
+  "height": 400,
+  "width": 600,
+  "config": {
+    "legend": {
+      "labelFontSize": 14,
+      "titleFontSize": 16
+    }
+  }
+}
