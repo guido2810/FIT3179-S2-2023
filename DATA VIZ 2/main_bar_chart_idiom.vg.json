@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Global Tree Cover Loss by Dominant Driver (2001-2022)",
+    "fontSize": 20,
+    "font": "Helvetica Neue",
+    "anchor": "start",
+    "color": "black",
+    "dy": -15
+  },
+  "data": {"url": "https://raw.githubusercontent.com/guido2810/FIT3179-S2-2023/main/data_folder/tree_cover_loss_by_dominant_driver_adjusted.csv"},
+  "width": 600,
+  "height": 400,
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 2, 
+    "cursor": "pointer"
+  },
+  "encoding": {
+    "y": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {
+        "title": "Year",
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "titleFont": "Helvetica Neue",
+        "labelFont": "Helvetica Neue"
+      }
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "Tree Cover Loss (Mha)",
+      "type": "quantitative",
+      "axis": {
+        "title": "Tree Cover Loss (Million ha)",
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "titleFont": "Helvetica Neue",
+        "labelFont": "Helvetica Neue"
+      }
+    },
+    "color": {
+      "field": "Dominant Driver",
+      "type": "nominal",
+      "legend": {
+        "title": "Dominant Drivers",
+        "titleFontSize": 16,
+        "labelFontSize": 14,
+        "titleFont": "Helvetica Neue",
+        "labelFont": "Helvetica Neue"
+      },
+      "scale": {"scheme": "viridis"}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal"},
+      {"field": "Dominant Driver", "type": "nominal"},
+      {"field": "Tree Cover Loss (Mha)", "type": "quantitative", "aggregate": "sum", "format": ".2f"}
+    ]
+  },
+  "transform": [
+    {
+      "fold": [
+        "Commodity driven deforestation",
+        "Forestry",
+        "Shifting agriculture",
+        "Unknown causes",
+        "Urbanization",
+        "Wildfires"
+      ],
+      "as": ["Dominant Driver", "Tree Cover Loss (Mha)"]
+    }
+  ],
+  "config": {
+    "background": "#f5f5f5",
+    "view": {"stroke": "transparent"},
+    "axis": {"grid": false},
+    "legend": {
+      "labelLimit": 0,
+      "symbolLimit": 0
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Global Tree Cover by Country",
+      "fontSize": 20,
+      "font": "Helvetica Neue",
+      "anchor": "start",
+      "color": "black",
+      "dy": -12  
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/guido2810/FIT3179-S2-2023/main/data_folder/tree_cover_top_10_countries.csv"
+    },
+    "vconcat": [
+      {
+        "width": 600,
+        "height": 400,
+        "mark": "point",
+        "encoding": {
+          "x": {
+            "field": "Country",
+            "type": "nominal",
+            "axis": {
+              "title": "Country",
+              "labelAngle": 0, 
+              "titleFontSize": 16,
+              "labelFontSize": 14,
+              "titleFont": "Helvetica Neue",
+              "labelFont": "Helvetica Neue",
+              "grid": true  
+            }
+          },
+          "y": {
+            "field": "Tree_Cover_Mha",
+            "type": "quantitative",
+            "axis": {
+              "title": "Tree Cover (Mha)",
+              "titleFontSize": 16,
+              "labelFontSize": 14,
+              "titleFont": "Helvetica Neue",
+              "labelFont": "Helvetica Neue",
+              "grid": true  
+            }
+          },
+          "size": {
+            "field": "Tree_Cover_Mha",
+            "type": "quantitative"
+          },
+          "color": {
+            "field": "Tree_Cover_Mha",
+            "type": "quantitative",
+            "scale": {
+              "scheme": "dark2"
+            },
+            "legend": {
+              "title": "Tree Cover (Mha)",
+              "titleFontSize": 16,
+              "labelFontSize": 14,
+              "titleFont": "Helvetica Neue",
+              "labelFont": "Helvetica Neue"
+            }
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Tree_Cover_Mha", "type": "quantitative"}
+          ]
+        },
+        "selection": {
+          "brush": {"type": "interval", "encodings": ["x"]}
+        }
+      },
+      {
+        "width": 600,
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "Tree_Cover_Mha",
+            "type": "quantitative",
+            "axis": {
+              "title": "Tree Cover (Mha)",
+              "titleFontSize": 16,
+              "labelFontSize": 14,
+              "titleFont": "Helvetica Neue",
+              "labelFont": "Helvetica Neue",
+              "grid": true  
+            }
+          },
+          "y": {
+            "field": "Country",
+            "type": "nominal",
+            "axis": {
+              "title": "Country",
+              "titleFontSize": 16,
+              "labelFontSize": 14,
+              "titleFont": "Helvetica Neue",
+              "labelFont": "Helvetica Neue"
+            },
+            "sort": "-x"
+          },
+          "color": {
+            "field": "Tree_Cover_Mha",
+            "type": "quantitative",
+            "scale": {
+              "scheme": "dark2"
+            },
+            "legend": null
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Tree_Cover_Mha", "type": "quantitative"}
+          ]
+        },
+        "transform": [
+          {"filter": {"selection": "brush"}},
+          {"window": [{"op": "rank", "as": "rank"}]},
+          {"filter": "datum.rank <= 5"}
+        ]
+      }
+    ],
+    "config": {
+      "background": "#f5f5f5",
+      "view": {
+        "stroke": "transparent",
+        "strokeWidth": 1  
+      },
+      "axis": {
+        "grid": true,  
+        "gridColor": "#cccccc",  
+        "gridOpacity": 0.8  
+      },
+      "concat": {
+        "spacing": 7  
+      },
+      "legend": {
+        "labelLimit": 0,
+        "symbolLimit": 0
+      }
+    }
+  }  

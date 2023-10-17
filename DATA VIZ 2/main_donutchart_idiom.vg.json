@@ -1,0 +1,84 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Global Tree Cover by Type",
+    "title": {
+      "text": "Global Tree Cover by Type (2000)",
+      "fontSize": 20,
+      "font": "Helvetica Neue",
+      "anchor": "start",
+      "color": "black"
+    },
+    "width": 700,
+    "height": 400,
+    "data": {
+      "values": [
+        {"type": "Natural Forest", "percentage": 29, "area": "3.86 Gha", "description": "Natural forests contribute to biodiversity, offering a wide range of habitats."},
+        {"type": "Plantations", "percentage": 1, "area": "138 Mha", "description": "Plantations are typically used for specific purposes like timber and agriculture."},
+        {"type": "Other Land Cover", "percentage": 69.9, "area": "9.28 Gha", "description": "This includes urban areas, croplands, barren land, etc."}
+      ]
+    },
+    "layer": [
+      {
+        "mark": {"type": "arc", "innerRadius": 100, "outerRadius": 160, "stroke": "#fff"},
+        "encoding": {
+          "theta": {"field": "percentage", "type": "quantitative", "stack": true},
+          "color": {
+            "field": "type", "type": "nominal",
+            "scale": {
+              "domain": ["Natural Forest", "Plantations", "Other Land Cover"],
+              "range": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+            },
+            "legend": {
+              "title": "Tree Cover Type",
+              "titleFontSize": 16,
+              "labelFontSize": 14,
+              "titleFont": "Helvetica Neue",
+              "labelFont": "Helvetica Neue",
+              "orient": "top-right"
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "radius": 120,
+          "align": "center",
+          "baseline": "middle",
+          "fontSize": 14,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "text": {"field": "percentage", "type": "quantitative", "format": ".1f"}, 
+          "theta": {"field": "percentage", "type": "quantitative", "stack": true}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "radius": 80,
+          "align": "center",
+          "baseline": "middle",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        "encoding": {
+          "text": {"field": "area", "type": "nominal"},
+          "theta": {"field": "percentage", "type": "quantitative", "stack": true}
+        }
+      }
+    ],
+    "encoding": {
+      "tooltip": [
+        {"field": "type", "type": "nominal", "title": "Tree Cover Type"},
+        {"field": "percentage", "type": "quantitative", "title": "Percentage", "format": ".1%"},
+        {"field": "area", "type": "nominal", "title": "Area"},
+        {"field": "description", "type": "nominal", "title": "Description"}
+      ]
+    },
+    "config": {
+      "background": "#f5f5f5",
+      "view": {"stroke": "transparent"},
+      "arc": {"stroke": "#d22a2a"}
+    }
+  }  

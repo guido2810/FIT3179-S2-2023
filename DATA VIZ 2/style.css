@@ -1,0 +1,143 @@
+/* Reset and General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out; /* Smooth transition on all elements */
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: linear-gradient(to right, #ece9e6, #ffffff); /* Subtle gradient background */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    overflow-x: hidden; /* Prevents horizontal scrolling caused by wide elements */
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer is at the bottom for shorter content pages */
+}
+
+header, footer {
+    background-color: #4b6584; /* Dark shade for contrast */
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 2rem;
+    box-shadow: 0px 10px 30px -15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adjust based on desired spacing between elements */
+}
+
+.logo {
+    width: 100px; /* Adjust based on desired logo size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+header h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.intro-section, .closing-section {
+    background-color: #eef7ff; /* Light blue background for distinction */
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center; /* Center the text within these sections */
+}
+
+main {
+    flex-grow: 1;
+    position: relative; /* New layering context */
+}
+
+.viz-section {
+    margin: 50px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    position: relative; /* For pseudo-elements and z-index */
+}
+
+.viz-view {
+    height: 500px;
+    margin: 0 auto; /* Centers the visualization horizontally */
+}
+
+.description {
+    margin-top: 20px;
+    padding: 20px; /* Increased padding for better readability */
+    text-align: justify;
+    background-color: rgba(255, 255, 255, 0.6); /* Layer of description box */
+    border-radius: 5px; /* Consistent rounded corners */
+    position: relative; /* For z-index layering */
+    z-index: 1; /* Description on a higher layer */
+}
+
+.description::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border: 2px solid #4b6584; /* Border around description for emphasis */
+    border-radius: 5px; /* Same as the description box */
+    z-index: -1; /* Below the text content */
+}
+
+h2 {
+    color: #204051; /* Darker color for contrast */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1em;
+}
+
+.spacing {
+    margin-top: 1em; /* Adds space above the paragraph for better separation */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .viz-view {
+        height: auto;
+    }
+
+    header, footer {
+        padding: 1rem; /* Adjusted for smaller screens */
+    }
+
+    .description, .description::before {
+        border-radius: 0; /* Full-width on small screens */
+    }
+
+    .header-content {
+        flex-direction: column; /* Stack logo and title vertically on small screens */
+    }
+
+    .logo {
+        margin-bottom: 15px; /* Space between logo and title on small screens */
+    }
+}
+
+/* Footer styling */
+footer {
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9em;
+    color: #ffffff;
+}

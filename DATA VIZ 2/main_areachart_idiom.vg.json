@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Global Annual Tree Cover Loss from Fires (2001-2022)",
+  "title": {
+    "text": "Global Annual Tree Cover Loss from Fires",
+    "fontSize": 20,
+    "anchor": "start",
+    "color": "black",
+    "align": "left",
+    "dy": -15 
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/guido2810/FIT3179-S2-2023/main/data_folder/annual_tree_cover_loss_from_fires.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "line": {"color": "#800000"},
+        "color": {
+          "x1": 1,
+          "y1": 1,
+          "x2": 1,
+          "y2": 0,
+          "gradient": "linear",
+          "stops": [
+            {"offset": 0, "color": "white"},
+            {"offset": 1, "color": "#ff9999"}
+          ]
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {"format": "%Y", "labelAngle": -45, "titleFontSize": 16, "labelFontSize": 14}
+        },
+        "y": {
+          "field": "loss_from_fires_ha",
+          "type": "quantitative",
+          "title": "Tree Cover Loss (hectares)",
+          "axis": {"titleFontSize": 16, "labelFontSize": 14}
+        }
+      }
+    },
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "year", "type": "temporal"},
+        "y": {"field": "loss_from_fires_ha", "type": "quantitative"},
+        "color": {"value": "#959595"},
+        "size": {"value": 3}
+      },
+      "transform": [
+        {"loess": "loss_from_fires_ha", "on": "year", "bandwidth": 0.35}
+      ]
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "fill": "#800000",
+        "stroke": "black"
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "temporal"},
+        "y": {"field": "loss_from_fires_ha", "type": "quantitative"},
+        "size": {"value": 100},
+        "tooltip": [
+          {"field": "year", "type": "temporal", "title": "Year", "format": "%Y"},
+          {"field": "loss_from_fires_ha", "type": "quantitative", "title": "Loss (hectares)", "format": ".2s"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 7
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "temporal"},
+        "y": {"field": "loss_from_fires_ha", "type": "quantitative"},
+        "text": {"field": "loss_from_fires_ha", "type": "quantitative", "format": ".2s"},
+        "opacity": {"condition": {"test": "datum['year'] % 5 == 0", "value": 1}, "value": 0}
+      }
+    }
+  ],
+  "height": 400,
+  "width": 600,
+  "config": {
+    "background": "#f5f5f5",
+    "title": {
+      "font": "Helvetica Neue",
+      "fontSize": 20,
+      "fontStyle": "normal",
+      "anchor": "start",
+      "color": "black",
+      "align": "left",
+      "dy": 20  
+    },
+    "axis": {
+      "titleFont": "Helvetica Neue",
+      "labelFont": "Helvetica Neue",
+      "titleFontSize": 16,
+      "labelFontSize": 14,
+      "titlePadding": 10  
+    },
+    "legend": {
+      "labelFontSize": 14,
+      "titleFontSize": 16
+    },
+    "view": {"stroke": "transparent"} 
+  }
+}
