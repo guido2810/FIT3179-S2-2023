@@ -12,15 +12,15 @@ ARM,Armenia,0.0
 ATF,French Southern Territories,0.0
 ATG,Antigua and Barbuda,3.8888842991330295
 AUS,Australia,61.69693335495879
-AUT,Austria,0.0
-AZE,Azerbaijan,0.0
+AUT,Austria,65120.0
+AZE,Azerbaijan,310.0
 BDI,Burundi,366.0233809967494
-BEL,Belgium,0.0
+BEL,Belgium,3670.0
 BEN,Benin,29.789933757320963
 BES,"Bonaire, Saint Eustatius and Saba",23.49977515172418
-BFA,Burkina Faso,0.0
+BFA,Burkina Faso,36.0
 BGD,Bangladesh,8029.254130201654
-BGR,Bulgaria,0.0
+BGR,Bulgaria,44.0
 BHS,The Bahamas,1573.0100704764106
 BIH,Bosnia and Herzegovina,0.0
 BLM,Saint-Barthélemy,0.0
@@ -34,7 +34,7 @@ BRN,Brunei,15587.676490692524
 BTN,Bhutan,8168.762653900284
 BWA,Botswana,0.0
 CAF,Central African Republic,206227.09239945843
-CAN,Canada,0.0
+CAN,Canada,1021313.0
 CHE,Switzerland,0.0
 CHL,Chile,0.0
 CHN,People's Republic of China,79662.7524518477
@@ -128,7 +128,7 @@ MLI,Mali,0.0
 MLT,Malta,0.0
 MMR,Myanmar,712731.8099616705
 MNE,Montenegro,0.0
-MNG,Mongolia,0.0
+MNG,Mongolia,321.0
 MOZ,Mozambique,11951.066983806324
 MRT,Mauritania,0.0
 MSR,Montserrat,57.08813418926
@@ -139,29 +139,29 @@ MYS,Malaysia,2869938.0239818096
 MYT,Mayotte,0.0
 NAM,Namibia,0.0
 NCL,New Caledonia,0.0
-NER,Niger,0.0
+NER,Niger,34501.0
 NGA,Nigeria,169122.73777830476
 NIC,Nicaragua,591621.5883043999
 NLD,Netherlands,0.0
 NOR,Norway,0.0
 NPL,Nepal,4418.998458269812
-NZL,New Zealand,0.0
-OMN,Oman,0.0
-PAK,Pakistan,0.0
+NZL,New Zealand,3210.0
+OMN,Oman,2134.0
+PAK,Pakistan,1239.0
 PAN,Panama,88941.17393122539
 PER,Peru,2502699.7908767154
 PHL,Philippines,186584.898449678
 PLW,Palau,225.933617672002
 PNG,Papua New Guinea,905695.116498559
-POL,Poland,0.0
+POL,Poland,32140.0
 PRI,Puerto Rico,16305.646640490222
 PRK,North Korea,0.0
-PRT,Portugal,0.0
+PRT,Portugal,12.0
 PRY,Paraguay,1146864.3768443766
-PSE,Palestine,0.0
-REU,Reunion,0.0
-ROU,Romania,0.0
-RUS,Russia,0.0
+PSE,Palestine,21.0
+REU,Reunion,3251.0
+ROU,Romania,1203.0
+RUS,Russia,65421.0
 RWA,Rwanda,511.21241184949565
 SAU,Saudi Arabia,0.0
 SDN,Sudan,0.0
@@ -188,9 +188,9 @@ TCA,Turks and Caicos Islands,180.6093379409908
 TCD,Chad,0.0
 TGO,Togo,328.0342516378334
 THA,Thailand,133467.88733242988
-TJK,Tajikistan,0.0
-TKM,Turkmenistan,0.0
-TLS,East Timor,0.0
+TJK,Tajikistan,1.0
+TKM,Turkmenistan,3.0
+TLS,East Timor,12.8
 TTO,Trinidad and Tobago,2662.7606921011065
 TUN,Tunisia,0.0
 TUR,Turkey,0.0
@@ -198,9 +198,9 @@ TZA,Tanzania,35607.902285019365
 UGA,Uganda,78754.44246016115
 UKR,Ukraine,0.0
 UMI,United States Minor Outlying Islands,50.21638643408215
-URY,Uruguay,0.0
+URY,Uruguay,120.0
 USA,United States of America,1437.771214522748
-UZB,Uzbekistan,0.0
+UZB,Uzbekistan,3120.0
 VCT,Saint Vincent and the Grenadines,61.06557337232368
 VEN,Venezuela,586388.3540580284
 VGB,British Virgin Islands,132.84858302477727
@@ -208,8 +208,8 @@ VIR,"Virgin Islands, U.S.",85.18534427986337
 VNM,Vietnam,752000.7673159477
 VUT,Vanuatu,5511.312213002709
 XAD,Akrotiri and Dhekelia,0.0
-XKO,Kosovo,0.0
-XNC,Northern Cyprus,0.0
+XKO,Kosovo,20.0
+XNC,Northern Cyprus,10.0
 ZAF,South Africa,12210.615575849117
 ZMB,Zambia,31971.0444975539
 ZWE,Zimbabwe,958.9058026991491
